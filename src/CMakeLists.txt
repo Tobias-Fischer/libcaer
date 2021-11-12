@@ -15,7 +15,11 @@ SET(LIBCAER_SOURCES
 	samsung_evk.c)
 
 # This is often the case due to how we try to have multiple compatible definitions of functions in C.
-SET(LIBCAER_COMPILE_OPTIONS "-Wno-unused-function")
+IF (WIN32)
+	SET(LIBCAER_COMPILE_OPTIONS "")
+ELSE()
+	SET(LIBCAER_COMPILE_OPTIONS "-Wno-unused-function")
+ENDIF()
 
 SET(LIBCAER_LINK_LIBRARIES_PRIVATE PkgConfig::libusb ${BASE_LIBS})
 
