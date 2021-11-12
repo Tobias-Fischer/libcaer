@@ -2,7 +2,10 @@
 
 #include "portable_aligned_alloc.h"
 
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+#else
 #include <stdalign.h> // To get alignas() macro.
+#endif
 #include <stdatomic.h>
 
 // Alignment specification support (with defines for cache line alignment).
