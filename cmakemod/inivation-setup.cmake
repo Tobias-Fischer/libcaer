@@ -1,6 +1,6 @@
 # Execute various useful checks and setup steps: - setup global build settings (CMAKE_BUILD_TYPE, CMAKE_INSTALL_PREFIX)
-# and provide support for Clang's libc++ via USE_CLANG_LIBCPP - setup C11 and C++17 requirements, prevent symbol leakage
-# - include useful cmake packages (GNUInstallDirs, FindPkgConfig) - enable compiler cache (ccache) - verify that size of
+# and provide support for Clang's libc++ via USE_CLANG_LIBCPP - setup C11 and C++20 requirements, prevent symbol leakage
+# - define proper installation directories via GNUInstallDirs - enable compiler cache (ccache) - verify that size of
 # void* and size_t agree (useful for low-level operations) - add useful definitions for compilation (XOPEN_SOURCE=700,
 # DEFAULT_SOURCE=1, DARWIN_C_SOURCE=1, FILE_OFFSET_BITS=64, USE_MINGW_ANSI_STDIO=1) as needed - enable all compiler
 # warnings for GCC and Clang - setup RPATH correctly - setup linking to only link to libraries with required symbols -
@@ -34,7 +34,7 @@ ENDIF()
 SET(CMAKE_C_STANDARD 11)
 SET(CMAKE_C_STANDARD_REQUIRED ON)
 SET(CMAKE_C_EXTENSIONS OFF)
-SET(CMAKE_CXX_STANDARD 17)
+SET(CMAKE_CXX_STANDARD 20)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 SET(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -45,9 +45,6 @@ SET(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 
 # Define installation paths
 INCLUDE(GNUInstallDirs)
-
-# Search for external libraries with pkg-config
-INCLUDE(FindPkgConfig)
 
 # Compiler cache support
 FIND_PROGRAM(CCACHE_FOUND ccache)

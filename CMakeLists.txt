@@ -51,6 +51,9 @@ ENDIF()
 
 MESSAGE(STATUS "Base libraries: ${BASE_LIBS}")
 
+# Search for external libraries with pkg-config
+INCLUDE(FindPkgConfig)
+
 # Required: basic USB devices support
 PKG_CHECK_MODULES(
 	libusb
