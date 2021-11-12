@@ -1,9 +1,11 @@
 #include "davis_rpi.h"
 
+#define _GNU_SOURCE
 #include <fcntl.h>
 #include <linux/spi/spidev.h>
 #include <linux/types.h>
 #include <sys/ioctl.h>
+#include <linux/mman.h>
 #include <sys/mman.h>
 #include <unistd.h>
 
