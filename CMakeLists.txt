@@ -8,6 +8,9 @@ PROJECT(libcaer VERSION 3.3.12 LANGUAGES C CXX)
 SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmakemod ${CMAKE_MODULE_PATH})
 INCLUDE(inivation-setup)
 
+# Legacy cmake support.
+INSTALL(FILES cmakemod/caer-base.cmake DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/caer)
+
 # Override default settings
 SET(CMAKE_C_VISIBILITY_PRESET default)
 SET(CMAKE_CXX_STANDARD 11)
